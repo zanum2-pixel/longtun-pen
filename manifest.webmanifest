@@ -1,0 +1,20 @@
+{
+  "name": "ลงทุนเป็น — เรียนรู้และฝึกวิเคราะห์",
+  "short_name": "ลงทุนเป็น",
+  "description": "บทเรียนภาษาไทยและเครื่องมือทดลองอ่านกราฟหุ้นกับ Forex สำหรับผู้เริ่มต้น",
+  "lang": "th-TH",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f7f4",
+  "theme_color": "#f4f7f4",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
