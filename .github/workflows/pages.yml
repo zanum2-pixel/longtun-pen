@@ -27,7 +27,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir _site
-          cp index.html manifest.webmanifest sw.js icon.svg _site/
+          cp index.html manifest.webmanifest sw.js icon.svg icon-192.png icon-512.png apple-touch-icon.png _site/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
