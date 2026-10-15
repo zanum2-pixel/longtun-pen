@@ -3,7 +3,7 @@
   "short_name": "ลงทุนเป็น",
   "description": "บทเรียนภาษาไทยและเครื่องมือทดลองอ่านกราฟหุ้นกับ Forex สำหรับผู้เริ่มต้น",
   "lang": "th-TH",
-  "start_url": "./",
+  "start_url": "./?source=pwa",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
@@ -11,10 +11,22 @@
   "theme_color": "#f4f7f4",
   "icons": [
     {
-      "src": "./icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

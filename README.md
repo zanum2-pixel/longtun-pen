@@ -8,7 +8,7 @@
 2. เปิด **Settings → Pages** แล้วเลือก **GitHub Actions** เป็นแหล่งเผยแพร่
 3. รอ workflow ชื่อ **Publish static PWA to GitHub Pages** ทำงานสำเร็จ จากนั้นใช้ URL ที่แสดงในหน้า Pages
 
-Workflow จะนำ `index.html`, `manifest.webmanifest`, `sw.js` และ `icon.svg` ขึ้นเว็บไซต์โดยตรง ไม่ต้องติดตั้งแพ็กเกจหรือ build ก่อน
+Workflow จะนำไฟล์แอปและไอคอน PNG สำหรับ Android/iOS ขึ้นเว็บไซต์โดยตรง ไม่ต้องติดตั้งแพ็กเกจหรือ build ก่อน
 
 เมื่อได้ URL HTTPS แล้ว เปิดบนมือถือเพื่อเพิ่มไปยังหน้าจอหลัก: Android ใช้ Chrome; iPhone ใช้ Safari แล้วเลือก **เพิ่มไปยังหน้าจอโฮม**
 
@@ -16,6 +16,7 @@ Workflow จะนำ `index.html`, `manifest.webmanifest`, `sw.js` และ `i
 
 - `index.html` — เนื้อหา แอป และเครื่องมือ
 - `manifest.webmanifest` — ชื่อและการตั้งค่า PWA
+- `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` — ไอคอนติดตั้งสำหรับ Android และ iOS
 - `sw.js` — cache สำหรับเปิดใช้งานแบบออฟไลน์
 - `.github/workflows/pages.yml` — workflow เผยแพร่ GitHub Pages
 

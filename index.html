@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4f7f4">
   <meta name="description" content="บทเรียนภาษาไทยและเครื่องมือทดลองอ่านกราฟหุ้นกับ Forex สำหรับผู้เริ่มต้น">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ลงทุนเป็น">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <title>ลงทุนเป็น — เรียนรู้และฝึกวิเคราะห์</title>
   <style>
     :root{color-scheme:light dark;--bg:light-dark(#f4f7f4,#111814);--paper:light-dark(#fff,#1a231e);--soft:light-dark(#edf3ee,#202c25);--ink:light-dark(#18231c,#edf4ef);--muted:light-dark(#68766d,#a6b2aa);--line:light-dark(#dde6de,#34433a);--green:light-dark(#16734b,#67d49b);--green-bg:light-dark(#e4f3e9,#1c3b2b);--red:light-dark(#ba4f48,#f28b7f);--amber:light-dark(#a66b18,#e7b763);--blue:light-dark(#4965a4,#a8bbff);--shadow:0 12px 32px #10251912;font:400 16px/1.55 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
@@ -34,7 +37,7 @@
           </div><p style="margin:18px 0 0"><button class="button primary" data-go="learn">เริ่มเรียนบทแรก <span aria-hidden="true">→</span></button></p></section>
           <aside class="panel panel-pad"><h2 class="section-title">ฝึกด้วยเครื่องมือ</h2><p class="muted small">ลองปรับกราฟและคำนวณสถานการณ์สมมติได้ โดยไม่ส่งคำสั่งซื้อขาย</p><div class="definition-list"><div class="definition"><b>ห้องกราฟ</b><span>เปิด/ปิดเส้น MA และ RSI บนกราฟจำลอง</span></div><div class="definition"><b>เครื่องคิดเลข</b><span>ทดลอง DCA และการเปลี่ยนแปลงของ pip</span></div></div><p style="margin:18px 0 0"><button class="button quiet" data-go="chart">เปิดห้องทดลอง</button></p></aside>
         </div>
-        <details class="callout install-help"><summary><b>ติดตั้งแอปนี้บนมือถือ</b></summary><p>ก่อนติดตั้ง ต้องนำเว็บนี้ขึ้นออนไลน์ผ่าน HTTPS ก่อน เพราะไฟล์ในโฟลเดอร์ยังติดตั้งจากลิงก์สาธารณะไม่ได้</p><ul><li><b>Android:</b> เปิดลิงก์เว็บด้วย Chrome แตะเมนู ⋮ แล้วเลือก “ติดตั้งแอป” หรือ “เพิ่มในหน้าจอหลัก”</li><li><b>iPhone:</b> เปิดลิงก์ด้วย Safari แตะปุ่มแชร์ แล้วเลือก “เพิ่มไปยังหน้าจอโฮม”</li></ul><p>หลังติดตั้งแล้ว แอปจะเปิดแบบเต็มหน้าจอ และบทเรียนที่เปิดดูแล้วเก็บไว้ใช้แบบออฟไลน์ได้เมื่อแคชพร้อม</p></details>
+        <details class="callout install-help" id="install-help"><summary><b>ติดตั้งแอปนี้บนมือถือ</b></summary><p id="install-status" aria-live="polite">แอปพร้อมติดตั้งเมื่อเปิดลิงก์นี้ผ่าน HTTPS บนมือถือ</p><button class="button primary" id="install-app" type="button" hidden>ติดตั้งแอป</button><ul><li><b>Android:</b> เปิดลิงก์นี้ด้วย Chrome แล้วแตะ “ติดตั้งแอป” หากมีปุ่มด้านบน หรือแตะเมนู ⋮ แล้วเลือก “ติดตั้งแอป” / “เพิ่มในหน้าจอหลัก”</li><li><b>iPhone:</b> เปิดลิงก์นี้ด้วย Safari แตะปุ่มแชร์ แล้วเลือก “เพิ่มไปยังหน้าจอโฮม” จากนั้นแตะ “เพิ่ม”</li></ul><p>หลังติดตั้งแล้ว แอปจะเปิดแบบเต็มหน้าจอ และบทเรียนที่เปิดดูแล้วเก็บไว้ใช้แบบออฟไลน์ได้เมื่อแคชพร้อม</p></details>
         <div class="footer-note">บทเรียนนี้ให้ความรู้ทั่วไป ไม่ใช่คำแนะนำการลงทุน สินทรัพย์ทุกชนิดมีความเสี่ยง</div>
       </section>
       <section class="page" id="page-learn" hidden>
@@ -110,6 +113,15 @@
     ["monthly","years","return-rate"].forEach(id=>document.getElementById(id).addEventListener("input",calculateDca));
     function calculatePips(){const start=Number(document.getElementById("fx-start").value)||0;const end=Number(document.getElementById("fx-end").value)||0;const size=Number(document.getElementById("pip-size").value)||.0001;const pips=(end-start)/size;document.getElementById("pip-result").textContent=`${pips>0?"+":""}${pips.toFixed(1)} pip`;document.getElementById("pip-note").textContent=pips>=0?"ราคาสูงขึ้นตามค่าที่กรอก · ยังไม่คำนวณกำไร/ขาดทุน":"ราคาลดลงตามค่าที่กรอก · ยังไม่คำนวณกำไร/ขาดทุน"}
     ["fx-start","fx-end","pip-size"].forEach(id=>document.getElementById(id).addEventListener("input",calculatePips));calculateDca();calculatePips();
+    let installPrompt=null;
+    const installButton=document.getElementById("install-app");
+    const installStatus=document.getElementById("install-status");
+    const isStandalone=window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone===true;
+    if(isStandalone)installStatus.textContent="ติดตั้งแอปนี้บนอุปกรณ์แล้ว";
+    else if(/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream)installStatus.textContent="บน iPhone หรือ iPad ให้ใช้ Safari แล้วเลือก แชร์ → เพิ่มไปยังหน้าจอโฮม";
+    window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();installPrompt=event;installButton.hidden=false;installStatus.textContent="พร้อมติดตั้งลงในอุปกรณ์นี้"});
+    installButton.addEventListener("click",async()=>{if(!installPrompt)return;installPrompt.prompt();const choice=await installPrompt.userChoice;installStatus.textContent=choice.outcome==="accepted"?"กำลังติดตั้งแอป":"ยกเลิกการติดตั้งแล้ว";installPrompt=null;installButton.hidden=true});
+    window.addEventListener("appinstalled",()=>{installStatus.textContent="ติดตั้งแอปนี้บนอุปกรณ์แล้ว";installButton.hidden=true;installPrompt=null});
     if("serviceWorker" in navigator&&location.protocol!=="file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
   </script>
 </body>
