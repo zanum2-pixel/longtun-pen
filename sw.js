@@ -1,4 +1,4 @@
-const CACHE_NAME = "longtun-pen-v8";
+const CACHE_NAME = "longtun-pen-v9";
 const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
