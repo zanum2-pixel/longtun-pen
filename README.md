@@ -18,6 +18,16 @@ Workflow จะนำไฟล์แอปและไอคอน PNG สำห
 
 เมื่อได้ URL HTTPS แล้ว เปิดบนมือถือเพื่อเพิ่มไปยังหน้าจอหลัก: Android ใช้ Chrome; iPhone ใช้ Safari แล้วเลือก **เพิ่มไปยังหน้าจอโฮม**
 
+## แอป Android สำหรับติดตั้งทดลอง
+
+โฟลเดอร์ `android/` เป็นแอป Android ที่เปิดเว็บแอปบนโดเมน GitHub Pages เดิม ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อโหลดเนื้อหาล่าสุด
+
+1. ทุกครั้งที่มีการเปลี่ยนแปลงใน `android/` workflow **Build Android APK** จะสร้าง APK สำหรับติดตั้งทดลอง
+2. เปิดแท็บ **Actions** ใน repository แล้วเลือก run ล่าสุดของ **Build Android APK**
+3. ดาวน์โหลด artifact ชื่อ `khao-jai-kon-longthun-android-apk` แล้วติดตั้ง `app-debug.apk` บน Android
+
+APK นี้ลงนามด้วยกุญแจ debug สำหรับทดสอบเท่านั้น ยังไม่ใช่ไฟล์ release สำหรับ Google Play การเผยแพร่ใน Play Store ต้องตั้ง package ID และ signing key สำหรับ release ก่อน
+
 ## ไฟล์หลัก
 
 - `index.html` — เนื้อหา แอป และเครื่องมือ
