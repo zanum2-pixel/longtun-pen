@@ -4,6 +4,6 @@
         <item name="android:colorAccent">#25634F</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowActionModeOverlay">true</item>
-        <item name="android:windowBackground">#F4F7F4</item>
+        <item name="android:windowBackground">#EFF8F4</item>
     </style>
 </resources>
