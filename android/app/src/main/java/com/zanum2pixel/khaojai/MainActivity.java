@@ -22,13 +22,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
-        window.setStatusBarColor(Color.rgb(244, 247, 244));
-        window.setNavigationBarColor(Color.rgb(244, 247, 244));
+        window.setStatusBarColor(Color.rgb(239, 248, 244));
+        window.setNavigationBarColor(Color.rgb(239, 248, 244));
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
 
         webView = new WebView(this);
-        webView.setBackgroundColor(Color.rgb(244, 247, 244));
+        webView.setBackgroundColor(Color.rgb(239, 248, 244));
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
